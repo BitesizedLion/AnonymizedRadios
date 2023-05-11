@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Anonymized Radios",
+    "description": "Creates anonymized versions of song radios that aren't hyper-personalized.",
+    "preview": "assets/Screenshot.png",
+    "main": "AnonymizedRadios.js",
+    "readme": "README.md",
+    "tags": ["radio"]
+  }
+]

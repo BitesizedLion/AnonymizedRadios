@@ -7,8 +7,10 @@ This extension solves that problem. To use it, simply right-click a song and cli
 
 The only way this extension works is thanks to [Spoqify](https://spoqify.com/), please star their Github repo if you want to!
 
-![Screenshot](assets/Screenshot.png)
-![Video](assets/Video.gif)
+<p float="middle">
+  <img src="assets/Screenshot.png" width="300" />
+  <img src="assets/Video.gif" width="300" /> 
+</p>
 
 ## Install
 You can either use the [Marketplace](https://github.com/spicetify/spicetify-marketplace/wiki/Installation) to install it, or:

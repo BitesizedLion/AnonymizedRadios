@@ -20,14 +20,8 @@ Copy the `.js` file into your [Spicetify](https://github.com/spicetify/spicetify
 | **MacOS**      | `~/spicetify_data/Extensions` or `$SPICETIFY_CONFIG/Extensions`                      |
 | **Windows**    | `%appdata%\spicetify\Extensions\`                                              |
 
-After putting the extension file into the correct folder, run the following command to install the extension or install through marketplace:
+After putting the extension file into the correct folder, run the following command to install the extension:
 ```
 spicetify config extensions AnonymizedRadios.js
-spicetify apply
-```
-
-Then run:
-
-```
 spicetify apply
 ```

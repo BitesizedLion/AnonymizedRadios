@@ -7,7 +7,8 @@ This extension solves that problem. To use it, simply right-click a song and cli
 
 The only way this extension works is thanks to [Spoqify](https://spoqify.com/), please star their Github repo if you want to!
 
-![Screenshot](https://github.com/BitesizedLion/AnonymizedRadios/assets/42980888/6aaaa060-f886-403e-ab5b-4a6d73c71bae)
+![Screenshot](assets/Screenshot.png)
+![Video](assets/Video.gif)
 
 ## Install
 You can either use the [Marketplace](https://github.com/spicetify/spicetify-marketplace/wiki/Installation) to install it, or:

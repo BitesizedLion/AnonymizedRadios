@@ -17,7 +17,7 @@
 
     sse.addEventListener("error", function (e) {
       sse.close();
-      console.error(error);
+      console.error(e);
       Spicetify.showNotification("Something went wrong, try again", true, 1000)
     });
   }
@@ -26,6 +26,8 @@
     if (uris.length > 1) return false;
 
     const uriObj = Spicetify.URI.fromString(uris[0]);
+
+    if (uriObj.id === "37i9dQZF1EYkqdzj48dyYq") return false; // Handle DJ
 
     if (uriObj.type === Spicetify.URI.Type.TRACK) return true;
     if (uriObj.type === Spicetify.URI.Type.ALBUM) return true;

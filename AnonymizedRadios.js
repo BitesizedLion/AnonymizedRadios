@@ -30,6 +30,7 @@
     if (uriObj.type === Spicetify.URI.Type.TRACK) return true;
     if (uriObj.type === Spicetify.URI.Type.ALBUM) return true;
     if (uriObj.type === Spicetify.URI.Type.PLAYLIST) return true;
+    if (uriObj.type === Spicetify.URI.Type.PLAYLIST_V2) return true;
     if (uriObj.type === Spicetify.URI.Type.ARTIST) return true;
 
     return false;

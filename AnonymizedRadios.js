@@ -18,7 +18,7 @@
     sse.addEventListener("error", function (e) {
       sse.close();
       console.error(e);
-      Spicetify.showNotification("Something went wrong, try again", true, 1000)
+      Spicetify.showNotification("Something went wrong, maybe the playlist is private?", true, 1000)
     });
   }
 

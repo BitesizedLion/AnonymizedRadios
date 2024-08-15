@@ -12,13 +12,19 @@
       sse.close();
       let anonymizedURL = e.data.replace("https://open.spotify.com", "");
 
-      Spicetify.Platform.History.push(anonymizedURL);
+      Spicetify.showNotification("Anonymizing radio, please wait...", false, 1000);
+
+      // Eventually replace with something that just uses Cosmos to check the playlist items...
+			setTimeout(() => {
+				Spicetify.Platform.History.push(anonymizedURL);
+				Spicetify.showNotification("Radio anonymized!", false, 1000);
+			}, 2500);
     });
 
     sse.addEventListener("error", function (e) {
       sse.close();
       console.error(e);
-      Spicetify.showNotification("Something went wrong, maybe the playlist is private?", true, 1000)
+      Spicetify.showNotification("Something went wrong, maybe you're trying it on something that isn't auto-generated?", true, 1000)
     });
   }
 
@@ -31,9 +37,9 @@
 
     if (uriObj.type === Spicetify.URI.Type.TRACK) return true;
     if (uriObj.type === Spicetify.URI.Type.ALBUM) return true;
-    if (uriObj.type === Spicetify.URI.Type.PLAYLIST) return true;
     if (uriObj.type === Spicetify.URI.Type.PLAYLIST_V2) return true;
     if (uriObj.type === Spicetify.URI.Type.ARTIST) return true;
+
 
     return false;
   }

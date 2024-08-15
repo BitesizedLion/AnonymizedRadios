@@ -12,7 +12,11 @@
       sse.close();
       let anonymizedURL = e.data.replace("https://open.spotify.com", "");
 
-      Spicetify.Platform.History.push(anonymizedURL);
+      Spicetify.Platform.History.push(anonymizedURL + "_+");
+			setTimeout(() => {
+				Spicetify.Platform.History.push(anonymizedURL);
+				Spicetify.showNotification("Radio anonymized!", false, 1000);
+			}, 2000);
     });
 
     sse.addEventListener("error", function (e) {

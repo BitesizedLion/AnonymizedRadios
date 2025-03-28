@@ -1,6 +1,9 @@
 (function anonymizedradios() {
-  const { Platform, URI } = Spicetify;
-
+	if (!(Spicetify.CosmosAsync && Spicetify.Platform && Spicetify.ContextMenu)) {
+		setTimeout(anonymizedradios, 300);
+		return;
+	}
+  
   async function makePlaylist(uris) {
     let trackID = uris[0];
     

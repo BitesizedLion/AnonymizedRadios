@@ -2,10 +2,20 @@
   const { Platform, URI } = Spicetify;
 
   async function makePlaylist(uris) {
-    const trackID = uris[0].substr(8);
-
+    let trackID = uris[0];
+    
+    // Convert to radio
+    let convReq = await Spicetify.CosmosAsync.get(`https://spclient.wg.spotify.com/inspiredby-mix/v2/seed_to_playlist/${trackID}?response-format=json`);
+    
+    if (!convReq.mediaItems || convReq.mediaItems.length === 0) {
+      Spicetify.showNotification("Couldn't fetch radio from Spotify...", true, 1000);
+      return;
+    }
+    
+    let playlistID = convReq.mediaItems[0].uri.substr(8);
+    
     const sse = new EventSource(
-      `https://open.spoqify.com/anonymize?url=${trackID}`
+      `https://open.spoqify.com/anonymize?url=${playlistID}`
     );
 
     sse.addEventListener("done", function (e) {
@@ -29,19 +39,22 @@
   }
 
   function shouldDisplayContextMenu(uris) {
+    // Don't allow multi select
     if (uris.length > 1) return false;
 
     const uriObj = Spicetify.URI.fromString(uris[0]);
 
-    if (uriObj.id === "37i9dQZF1EYkqdzj48dyYq") return false; // Handle DJ
+    // Exclude DJ
+    if (uriObj.id === "37i9dQZF1EYkqdzj48dyYq") return false;
 
-    if (uriObj.type === Spicetify.URI.Type.TRACK) return true;
-    if (uriObj.type === Spicetify.URI.Type.ALBUM) return true;
-    if (uriObj.type === Spicetify.URI.Type.PLAYLIST_V2) return true;
-    if (uriObj.type === Spicetify.URI.Type.ARTIST) return true;
+    const allowedTypes = [
+      Spicetify.URI.Type.TRACK,
+      Spicetify.URI.Type.ALBUM,
+      Spicetify.URI.Type.PLAYLIST_V2,
+      Spicetify.URI.Type.ARTIST
+    ];
 
-
-    return false;
+    return allowedTypes.includes(uriObj.type);
   }
 
   const cntxMenu = new Spicetify.ContextMenu.Item(

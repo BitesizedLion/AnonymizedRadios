@@ -1,5 +1,8 @@
 # AnonymizedRadios
 
+> [!IMPORTANT]
+> I don't maintain open source projects anymore but to my knowledge AnonymizedRadios still works.
+
 Spotify heavily personalizes song radios based on the music you listen to. However, sometimes you want to listen to something fresh.
 
 This extension solves that problem. To use it, simply right-click a song/playlist/album/artist and click "Create anonymized radio." You will then be redirected to an anonymized song radio that is based on the song/playlist/album/artist you selected, but does not take your listening history into account.
